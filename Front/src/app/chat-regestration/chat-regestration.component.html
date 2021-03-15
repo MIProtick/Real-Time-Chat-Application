@@ -1,0 +1,21 @@
+<div class="registraionBox">
+  <div id="firstNameBox">
+    <label>First Name : </label>
+    <input type="text" [(ngModel)]="userData.firstName" placeholder="Your Firstname " />
+  </div>
+  <div id="lastNameBox">
+    <label>Last Name : </label>
+    <input type="text" [(ngModel)]="userData.lastName" placeholder="Your Lastname " />
+  </div>
+  <div id="emailBox">
+    <label>Email : </label>
+    <input type="email" [(ngModel)]="userData.email" placeholder="@email.etx" />
+  </div>
+  <div id="passBox">
+    <label>Password : </label>
+    <input type="password" [(ngModel)]="userData.password" placeholder="Place Password Carefully" />
+  </div>
+  <div id="btnSec">
+    <button (click)="registerUser()">Sign Up</button>
+  </div>
+</div>

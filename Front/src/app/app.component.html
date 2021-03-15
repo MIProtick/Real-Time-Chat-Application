@@ -1,0 +1,40 @@
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content below * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * Delete the template below * * * * * * * * * * -->
+<!-- * * * * * * * to get started with your project! * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<!-- Toolbar -->
+<div class="navbar">
+    <div class="private" *ngIf="isAuthenticated()" (click)="showPrivateMembers(privateRoomModal)"> Private </div>
+    <div id="apptitle"> {{title}} </div>
+    <div class="logoutSec" *ngIf="isAuthenticated()">
+        <div class="profile"> {{getCurrentUser().firstName}} </div>
+        <div id="logoutBtn" (click)="logout()"> Log Out </div>
+    </div>
+</div>
+
+<!-- Private room create modal -->
+<div class="modal" #privateRoomModal>
+    <div class="modalBody">
+        <button class="close" (click)="togglePrivateModal(privateRoomModal)">X</button>
+        <header>Other Members </header>
+        <div class="privateRooms">
+            <a class="privateRoomBtn" (click)="joinPrivateChat(usr,privateRoomModal)" *ngFor="let usr of findMembers()">
+                {{usr.firstName}} </a>
+        </div>
+    </div>
+</div>
+
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
+<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
+<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+
+<router-outlet></router-outlet>

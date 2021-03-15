@@ -1,0 +1,77 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+#welcomePage {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  background-image: url("../../assets/img/loginBg.jpg");
+  background-size: 100% 100%;
+}
+
+#welcomeBox {
+  max-height: 130px;
+  min-height: 120px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+}
+
+#welcomeMsg {
+  font-size: 28px;
+  font-weight: 600;
+  color: snow;
+  background-color: rgba(15, 80, 115, 0.4);
+  border-radius: 15px;
+  width: 70%;
+  max-height: 80px;
+  min-height: 80px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  box-shadow: 0 0px 2px 1px rgb(10, 40, 55, 0.6);
+  padding: 0 5px;
+}
+
+#authBoxCover {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.authBox {
+  width: 500px;
+  height: 450px;
+  background-color: rgba(15, 100, 130, 0.4);
+  margin: auto;
+  box-shadow: 0 1px 4px 3px rgba(10, 11, 51, 0.4);
+  display: flex;
+  flex-direction: column;
+}
+
+.authBtn {
+  height: 40px;
+  background-color: rgb(40, 90, 120, 0.3);
+  display: flex;
+  flex-direction: row;
+}
+.authBtn div {
+  display: flex;
+  color: aliceblue;
+  width: 50%;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  border: 1.9px solid #03606b57;
+}
+
+.active {
+  background-color: rgb(3, 55, 85, 0.45);
+}

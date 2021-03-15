@@ -1,0 +1,317 @@
+:host {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  overflow: hidden;
+}
+
+.main {
+  background-color: lightgray;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: row;
+  overflow: hidden;
+}
+
+.sideMenu {
+  background-color: #272f4c;
+  min-width: 90px;
+  max-width: 100px;
+  z-index: 50;
+  box-shadow: 1px 0 3px 0 rgba(10, 11, 51, 0.5);
+  display: flex;
+  flex-direction: column;
+}
+
+.roomBtn {
+  text-decoration: none;
+  color: #dbe3f3;
+  cursor: pointer;
+  background-color: #2f3f60;
+  margin: 15px 15px 0px 15px;
+  height: 60px;
+  text-align: center;
+  font-weight: 400;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #21184c;
+  border-radius: 7px;
+  box-shadow: 0 1px 3px 1px #222;
+}
+
+.roomBtn:hover {
+  box-shadow: 0 1px 3px 1px #444774;
+  font-size: 16px;
+  margin: 13px 13px -2px 13px;
+  height: 64px;
+}
+
+.chat {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.chatBody {
+  background-color: #eee;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+.chatBody::-webkit-scrollbar-track {
+  background-color: #eaeef5ba;
+  border-radius: 7px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.chatBody::-webkit-scrollbar {
+  width: 6px;
+}
+
+.chatBody::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: rgb(8, 94, 155);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+.chatBody::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(57, 126, 175);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(8, 94, 155) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(8, 94, 155) 50%,
+    rgba(8, 94, 155) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+
+.modelBoxCover {
+  display: flex;
+}
+.modelBoxCover:first-child {
+  margin-top: auto;
+}
+
+.msgBox {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0.1rem;
+  border-radius: 5px 50px;
+  max-width: 80%;
+}
+
+.msgBoxMain {
+  display: flex;
+}
+
+.msgBoxMain header {
+  font-size: 11px;
+  font-style: oblique;
+  text-align: center;
+  min-width: 50px;
+  max-width: 50px;
+  height: 25px;
+  word-break: break-all;
+  align-self: baseline;
+  overflow: hidden;
+  background-color: rgb(155 160 200 / 22%);
+  margin-right: 7px;
+  padding: 0.3rem 0.7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.msgBoxMain .msgText {
+  margin: 0;
+  flex-grow: 1;
+  text-align: justify;
+  white-space: pre-wrap;
+  padding: 0.2rem 0.5rem;
+  background-color: rgb(155 160 200 / 22%);
+  border-radius: 10px;
+}
+
+.msgBox footer {
+  min-width: 200px;
+  text-align: end;
+  font-size: 8px;
+  color: rgba(0, 0, 0, 0.7);
+  font-style: oblique;
+  border-radius: 10px 0 10px 0;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.chatInput {
+  background-color: #272f4c;
+  min-height: 45px;
+  max-height: 45px;
+  z-index: 25;
+  box-shadow: 0 -1px 2px 0 #272f4c;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+
+.chatInput textarea {
+  padding: 5px;
+  flex-grow: 1;
+  resize: none;
+  overflow: hidden;
+  font-size: 16px;
+  border-radius: 6px;
+}
+
+.chatInput button {
+  min-width: 110px;
+  font-size: 18px;
+  font-style: oblique;
+  border-radius: 6px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  background-color: rgba(0.2, 0.2, 0.2, 0.7);
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBody {
+  position: relative;
+  min-width: 40%;
+  max-width: 60%;
+  background-color: #212842;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.modalBody * {
+  margin: 0.2rem;
+  display: flex;
+}
+
+.modalBody > .close {
+  position: absolute;
+  font-size: 12px;
+  top: 2px;
+  right: 2px;
+  padding: 0 3px;
+}
+
+.modalBody > header {
+  color: #fff;
+  font-weight: 200;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.modalBody > div > input {
+  width: 100%;
+}
+
+.modalBody > footer {
+  text-align: center;
+  justify-content: center;
+}
+
+.modalBody > .roomsStore {
+  width: 100%;
+  max-height: 90px;
+  display: flex;
+  flex-flow: wrap;
+  overflow-y: auto;
+  justify-content: center;
+}
+
+.modalBody > .roomsStore > .storeRoomBtn {
+  text-decoration: none;
+  color: #dbe3f3;
+  cursor: pointer;
+  background-color: #2f3f60;
+  margin: 7px;
+  height: 50px;
+  width: 55px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #21184c;
+  border-radius: 7px;
+  box-shadow: 0 1px 3px 1px #222;
+}
+.modalBody > .roomsStore > .storeRoomBtn:hover {
+  box-shadow: 0 1px 3px 1px #444774;
+}
+
+.modalBody > .roomsStore::-webkit-scrollbar-track {
+  background-color: #656e8bba;
+  border-radius: 7px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.modalBody > .roomsStore::-webkit-scrollbar {
+  width: 5.5px;
+}
+
+.modalBody > .roomsStore::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: rgb(8, 94, 155);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+.modalBody > .roomsStore::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(57, 126, 175);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(8, 94, 155) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(8, 94, 155) 50%,
+    rgba(8, 94, 155) 75%,
+    transparent 75%,
+    transparent
+  );
+}

@@ -1,0 +1,13 @@
+<div class="loginBox">
+  <div id="emailBox">
+    <label>Email : </label>
+    <input type="email" [(ngModel)]="email" placeholder="@email.com" />
+  </div>
+  <div id="passBox">
+    <label>Password : </label>
+    <input type="password" [(ngModel)]="password" placeholder="Place Password Carefully" />
+  </div>
+  <div id="btnSec">
+    <button (click)="authenticateUser()">Sign in</button>
+  </div>
+</div>

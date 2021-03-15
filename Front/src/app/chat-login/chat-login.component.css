@@ -1,0 +1,68 @@
+:host {
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.loginBox {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 50px 0;
+  background-color: rgb(3, 55, 85, 0.45);
+}
+#emailBox {
+  width: 80%;
+  margin: 45px auto 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+#passBox {
+  width: 80%;
+  margin: 15px auto 15px;
+  display: flex;
+  flex-direction: row;
+}
+
+label {
+  width: 120px;
+  font-size: 18px;
+  align-self: center;
+  font-weight: 600;
+  color: white;
+  text-align: end;
+  margin-right: 5px;
+}
+input {
+  width: 100px;
+  padding: 7px 7px;
+  font-size: 15px;
+  border: 2.3px solid rgb(17, 32, 65, 0.5);
+  border-radius: 10px;
+  color: darkslategray;
+  background-color: rgb(234, 246, 255, 0.8);
+  outline: none;
+  flex-grow: 1;
+}
+
+input:focus {
+  border-color: snow;
+}
+
+button {
+  width: 90px;
+  height: 35px;
+  font-size: 15px;
+  padding: 5px 10px;
+  background-color: rgb(234, 246, 255, 0.8);
+  border-radius: 10px;
+  border-color: rgb(17, 32, 65, 0.5);
+  margin: 18px auto;
+}
+
+button:hover {
+  width: 92px;
+  height: 37px;
+  font-size: 16px;
+}

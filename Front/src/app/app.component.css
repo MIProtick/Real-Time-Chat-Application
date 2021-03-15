@@ -1,0 +1,212 @@
+:host {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
+    Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  color: #333;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+}
+* {
+  box-sizing: border-box;
+}
+
+.navbar {
+  margin: 0;
+  background-color: #212842;
+  min-height: 60px;
+  max-height: 60px;
+  z-index: 100;
+  box-shadow: 0 1px 4px 0 #040b22;
+  color: azure;
+  text-align: center;
+  justify-content: center;
+  display: flex;
+  /* flex-direction: column; */
+  font-size: x-large;
+}
+
+.private {
+  min-width: 100px;
+  font-size: 14px;
+  font-style: oblique;
+  display: flex;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+}
+
+#apptitle {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logoutSec {
+  min-width: 180px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  font-size: large;
+  margin-right: 10px;
+}
+
+.profile {
+  max-width: 70px;
+  width: 70px;
+  height: 30px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  font-size: 14px;
+  font-style: oblique;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#logoutBtn {
+  height: 30px;
+  width: 80px;
+  cursor: pointer;
+  padding: 0 5px;
+  background-color: white;
+  color: black;
+  border-radius: 5px;
+  box-shadow: 1px 1px 1px 1px rgb(217, 233, 245, 0.5);
+  font-weight: 400;
+  font-style: oblique;
+}
+
+#logoutBtn:hover {
+  font-size: 18.5px;
+  height: 31px;
+  width: 81px;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  min-height: 100vh;
+  min-width: 100vw;
+  z-index: 200;
+  top: 0;
+  left: 0;
+  background-color: rgba(0.2, 0.2, 0.2, 0.7);
+}
+
+.modal.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modalBody {
+  position: relative;
+  min-width: 70%;
+  max-width: 90%;
+  background-color: #212842;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.modalBody * {
+  margin: 0.2rem;
+  display: flex;
+}
+
+.modalBody > .close {
+  position: absolute;
+  font-size: 11px;
+  top: 3px;
+  right: 3px;
+  padding: 0px 3px;
+  cursor: pointer;
+  outline: none;
+}
+
+.modalBody > header {
+  color: #fff;
+  font-weight: 200;
+  font-size: 16px;
+  font-style: italic;
+  justify-content: center;
+  margin-top: 0.5rem;
+}
+
+.modalBody > .privateRooms {
+  width: 100%;
+  max-height: 170px;
+  display: flex;
+  flex-flow: wrap;
+  overflow-y: auto;
+  justify-content: center;
+  align-content: flex-start;
+}
+
+.modalBody > .privateRooms > .privateRoomBtn {
+  text-decoration: none;
+  color: #dbe3f3;
+  cursor: pointer;
+  background-color: #2f3f60;
+  margin: 3px 7px;
+  height: 35px;
+  width: 120px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #21184c;
+  border-radius: 7px;
+  box-shadow: 0 1px 3px 1px #222;
+}
+
+.modalBody > .privateRooms > .privateRoomBtn:hover {
+  box-shadow: 0 1px 3px 1px #444774;
+}
+
+.modalBody > .privateRooms::-webkit-scrollbar-track {
+  background-color: #656e8bba;
+  border-radius: 7px;
+  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.modalBody > .privateRooms::-webkit-scrollbar {
+  width: 5.5px;
+}
+
+.modalBody > .privateRooms::-webkit-scrollbar-thumb {
+  border-radius: 7px;
+  background-color: rgb(8, 94, 155);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.2) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(255, 255, 255, 0.2) 50%,
+    rgba(255, 255, 255, 0.2) 75%,
+    transparent 75%,
+    transparent
+  );
+}
+.modalBody > .privateRooms::-webkit-scrollbar-thumb:hover {
+  background-color: rgb(57, 126, 175);
+  background-image: -webkit-linear-gradient(
+    45deg,
+    rgba(8, 94, 155) 25%,
+    transparent 25%,
+    transparent 50%,
+    rgba(8, 94, 155) 50%,
+    rgba(8, 94, 155) 75%,
+    transparent 75%,
+    transparent
+  );
+}

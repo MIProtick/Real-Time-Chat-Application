@@ -1,0 +1,30 @@
+<div id="welcomePage">
+  <div id="welcomeBox">
+    <div id="welcomeMsg">{{ welcomeMessage | titlecase }}</div>
+  </div>
+  <div id="authBoxCover">
+    <div class="authBox">
+      <div class="authBtn">
+        <div
+          class="active"
+          #signInBtn
+          id="signInBtn"
+          (click)="toogleAuthBtn(signInBtn, signUpBtn)"
+        >
+          Sign In
+        </div>
+        <div
+          class=""
+          #signUpBtn
+          id="signUpBtn"
+          (click)="toogleAuthBtn(signUpBtn, signInBtn)"
+        >
+          Sign Up
+        </div>
+      </div>
+      <app-chat-login *ngIf="isNotNew"></app-chat-login>
+      <app-chat-regestration *ngIf="!isNotNew"></app-chat-regestration>
+    </div>
+  </div>
+  <!-- <app-chat-login></app-chat-login> -->
+</div>

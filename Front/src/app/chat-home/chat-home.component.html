@@ -1,0 +1,77 @@
+<div class="main">
+  <div class="sideMenu">
+    <a class="roomBtn" id="{{chatHd.chatId}}"
+      [ngStyle]="{'box-shadow':chatHd.chatId == getCurrentChatHead().chatId? '0 1px 3px 1px #979ce7':'0 1px 3px 1px #222'}"
+      (click)="fetchRoomData(chatHd)" *ngFor="let chatHd of getChatHead()">
+      {{ chatHd.name }}
+    </a>
+    <a class="roomBtn" (click)="toggleModal(chatRoomName, createRoomModal)"> + </a>
+  </div>
+  <div class="chat" *ngIf="isJoinedGroup(); else elseChat">
+    <div class="chatBody" id="chatBody" *ngIf="isNotMsgEmpty(); else elseChatBody">
+      <div class="modelBoxCover" [ngStyle]="{'flex-direction':isThisUsr(msgd)? 'row-reverse':'row'}"
+        *ngFor="let msgd of getMessage(); let i = index" id="{{ i }}">
+        <div class="msgBox" *ngIf="isThisUsr(msgd); else elseMsgBox">
+          <div class="msgBoxMain">
+            <div class="msgText"> {{ msgd.text }} </div>
+            <header style="margin-left: 7px; margin-right: 2px;"> {{ msgd.name }} </header>
+          </div>
+          <footer style="flex-direction: row;">{{ msgd.date }} <span style="width: 3px; display: inline-block;"></span>
+            {{ msgd.time }}</footer>
+        </div>
+        <ng-template #elseMsgBox>
+          <div class="msgBox">
+            <div class="msgBoxMain">
+              <header> {{ msgd.name }} </header>
+              <div class="msgText"> {{ msgd.text }} </div>
+            </div>
+            <footer>{{ msgd.date }} <span style="width: 3px; display: inline-block;"></span> {{ msgd.time }}</footer>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+    <ng-template #elseChatBody>
+      <div class="chatBody">
+        <div class="msgBox">
+          <header></header>
+          <p style="text-align: center; font-style: italic">
+            Welcome to your new chat room - {{getCurrentChatHead().name}} !!
+          </p>
+          <footer></footer>
+        </div>
+      </div>
+    </ng-template>
+    <div class="chatInput">
+      <textarea #msgInp type="text" [(ngModel)]="sendMessage.text" placeholder="Your Message Here"></textarea>>
+      <button [ngStyle]="{'cursor':'pointer'}" (click)="sendMsg(msgInp)">Send</button>
+    </div>
+  </div>
+  <ng-template #elseChat>
+    <div class="chat" [ngStyle]="{'justify-content': 'center', 'text-align': 'center'}">
+      Welcome to your personal messanger <br>
+      "{{userData.firstName|titlecase}} {{userData.lastName|titlecase}}"
+    </div>
+  </ng-template>
+</div>
+
+<!-- Room create modal -->
+<div class="modal" #createRoomModal>
+  <div class="modalBody">
+    <button class="close" (click)="toggleModal(chatRoomName, createRoomModal)">X</button>
+    <header>Room Store</header>
+    <div class="roomsStore">
+      <a class="storeRoomBtn" (click)="joinChatRoom(storeRm, chatRoomName, createRoomModal)"
+        *ngFor="let storeRm of getStoreRoom()"> {{storeRm.name}}
+      </a>
+    </div>
+    <header>Create New Room</header>
+    <div>
+      <input type="text" #chatRoomName />
+    </div>
+    <footer>
+      <button (click)="createChat(chatRoomName, createRoomModal)">
+        Create
+      </button>
+    </footer>
+  </div>
+</div>
