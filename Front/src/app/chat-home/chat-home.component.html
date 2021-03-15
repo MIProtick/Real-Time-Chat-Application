@@ -32,7 +32,7 @@
     </div>
     <ng-template #elseChatBody>
       <div class="chatBody">
-        <div class="msgBox">
+        <div class="msgBox" [ngStyle]="{'margin-top':'auto'}">
           <header></header>
           <p style="text-align: center; font-style: italic">
             Welcome to your new chat room - {{getCurrentChatHead().name}} !!

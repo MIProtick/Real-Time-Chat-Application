@@ -65,6 +65,7 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
   // Toggle room modal
   toggleModal(inpt: HTMLInputElement, createRoomModal: HTMLDivElement) {
     createRoomModal.classList.toggle("active");
+    inpt.value = "";
     inpt.focus();
   }
 
@@ -81,6 +82,7 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
     let isJoined = await this._chatService.joinRoom(room);
     if (isJoined) {
       await this._chatService.fetchJoinedRooms();
+      await this._chatService.fetchStoreRooms();
       this.toggleModal(inpt, createRoomModal);
     }
     else alert("Room name can't be empty!");

@@ -32,11 +32,11 @@ This application is created with Asp.net Core as a server and angular as a clien
 * Open Command Prompt or Terminal and go to the prefered directory where the project will be cloned.
 >```sh
 >git clone 
->cd 
+>cd https://github.com/MIProtick/Real-Time-Chat-Application.git
 >```
 * Go to *`back`* directory for server.
 >```sh
->cd back
+>cd Back
 >```
 * Change the ***Data Source*** of the "*DefaultConnection:*" from [*appsettings.json*](Back/appsettings.json) according to your local MSSQL Server credentials.
 * Make Migrations
@@ -51,8 +51,8 @@ This application is created with Asp.net Core as a server and angular as a clien
 >```
 * Go to *`front`* directory for server.
 >```sh
-> cd back
-> ng build
+> cd Front
+> npm install
 > ng serve
 >```
 * Open a browser and browse to:
