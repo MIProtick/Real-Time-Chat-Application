@@ -9,6 +9,7 @@
     - [Prerequisites <a name = "prerequisites"></a>](#prerequisites-)
     - [Install & Run Application <a name = "installation"></a>](#install--run-application-)
     - [Demo <a name=demo></a>](#demo-)
+    - [Uses](#uses)
   - [Author <a name = "author"></a>](#author-)
 
 ## About <a name = "about"></a>
@@ -62,6 +63,9 @@ And it's good to go.
 
 ### Demo <a name=demo></a>
 &nbsp;&nbsp;&nbsp;&nbsp;![](_DemoImg\demo1.png) &nbsp;&nbsp; ![](_DemoImg\demo2.png)
+
+### Uses
+For more details go [there](_DemoImg/USES.md).
 
 ## Author <a name = "author"></a>
 &nbsp;&nbsp;&nbsp;  [*Mezbaul Islam Protick*](https://github.com/MIProtick)
