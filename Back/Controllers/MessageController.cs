@@ -4,6 +4,7 @@ using Back.Models;
 using Back.Templates;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.SignalR;
+using Microsoft.EntityFrameworkCore;
 
 namespace Back.Controllers
 {
@@ -62,6 +63,22 @@ namespace Back.Controllers
                 .SendAsync("receiveMsg", newMsg.Id, newMsg.Name, newMsg.UserId, newMsg.Text, newMsg.Date, newMsg.Time, newMsg.ChatId);
 
             return Ok(new { status = "Succeed", data = "Message've been sent to " + roomGroupName });
+        }
+
+        // Deleting Messages
+        [HttpPost]
+        [Route("deletemsg")]
+        public async Task<IActionResult> deleteMsgAsync([FromBody] ChatMessage chatPost)
+        {
+            Message msgToDel = new Message() { Id = chatPost.message.Id };
+            _ctx.Entry(msgToDel).State = EntityState.Deleted;
+            await _ctx.SaveChangesAsync();
+
+            string roomGroupName = chatPost.chat.ChatId + chatPost.chat.Name;
+            await _chatControlHubContext.Clients.Group(roomGroupName)
+                .SendAsync("deleteMsg", chatPost.message.Id, chatPost.chat.ChatId);
+
+            return Ok(new { status = "Succeed", data = "Successfully deleted message" });
         }
 
         public IActionResult Post()

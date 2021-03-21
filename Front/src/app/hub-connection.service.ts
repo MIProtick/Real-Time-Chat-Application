@@ -45,6 +45,11 @@ export class HubConnectionService {
         this._chatService.pushMsg({ id: id, name: user, userId: userid, text: msg, date: date, time: time });
       this.chatBodyScroll();
     });
+    connection.on("deleteMsg", (msgId, chatId) => {
+      if (chatId == this._chatService.currentChatData.chatId)
+        this._chatService.deleteFilterMsg(msgId);
+      this.chatBodyScroll();
+    });
   }
 
   chatBodyScroll() {

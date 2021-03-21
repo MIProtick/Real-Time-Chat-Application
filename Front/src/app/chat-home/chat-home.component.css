@@ -16,7 +16,7 @@
 .sideMenu {
   background-color: #272f4c;
   min-width: 90px;
-  max-width: 100px;
+  max-width: 90px;
   z-index: 50;
   box-shadow: 1px 0 3px 0 rgba(10, 11, 51, 0.5);
   display: flex;
@@ -32,19 +32,27 @@
   height: 60px;
   text-align: center;
   font-weight: 400;
+  font-size: 13px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   border: 1px solid #21184c;
   border-radius: 7px;
   box-shadow: 0 1px 3px 1px #222;
+  padding: 0 4px;
 }
 
 .roomBtn:hover {
   box-shadow: 0 1px 3px 1px #444774;
-  font-size: 16px;
+  font-size: 14px;
   margin: 13px 13px -2px 13px;
   height: 64px;
+}
+
+.roomBtn > div {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-break: break-all;
 }
 
 .chat {
@@ -141,6 +149,17 @@
   align-items: center;
   justify-content: center;
   border-radius: 10px;
+}
+
+.msgBoxMain .delbox {
+  padding: 0 5px;
+  display: flex;
+  align-items: center;
+  font-size: 15px;
+  visibility: hidden;
+}
+.msgBoxMain:hover i.delbox {
+  visibility: visible;
 }
 
 .msgBoxMain .msgText {

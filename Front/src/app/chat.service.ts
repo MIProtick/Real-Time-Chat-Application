@@ -40,6 +40,11 @@ export class ChatService {
   pushMsg(newMessage: MsgData) {
     this.currentChatData.messages.push(newMessage);
   }
+  deleteFilterMsg(msgId: number) {
+    this.currentChatData.messages = this.currentChatData.messages.filter((msg) => {
+      return msg.id != msgId;
+    });
+  }
 
   resetChatSevice() {
     this.userData = { id: "", firstName: '', lastName: '', email: '', password: '' };
@@ -147,6 +152,13 @@ export class ChatService {
 
   async sendMsgToDb(msg: MsgData) {
     let url = 'http://localhost:5000/api/room/sendmsgdb';
+    await this._http.post(url, { "chat": this.currentChatData, "message": msg }).toPromise()
+      .then((data) => console.log(data));
+  }
+
+  // Deleting message
+  async deleteMsg(msg: MsgData) {
+    let url = 'http://localhost:5000/api/chat/deletemsg';
     await this._http.post(url, { "chat": this.currentChatData, "message": msg }).toPromise()
       .then((data) => console.log(data));
   }

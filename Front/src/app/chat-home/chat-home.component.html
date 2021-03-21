@@ -3,7 +3,7 @@
     <a class="roomBtn" id="{{chatHd.chatId}}"
       [ngStyle]="{'box-shadow':chatHd.chatId == getCurrentChatHead().chatId? '0 1px 3px 1px #979ce7':'0 1px 3px 1px #222'}"
       (click)="fetchRoomData(chatHd)" *ngFor="let chatHd of getChatHead()">
-      {{ chatHd.name }}
+      <div> {{ chatHd.name }} </div>
     </a>
     <a class="roomBtn" (click)="toggleModal(chatRoomName, createRoomModal)"> + </a>
   </div>
@@ -13,10 +13,13 @@
         *ngFor="let msgd of getMessage(); let i = index" id="{{ i }}">
         <div class="msgBox" *ngIf="isThisUsr(msgd); else elseMsgBox">
           <div class="msgBoxMain">
-            <div class="msgText"> {{ msgd.text }} </div>
-            <header style="margin-left: 7px; margin-right: 2px;"> {{ msgd.name }} </header>
+            <i class="fa fa-trash-o delbox" (click)="deleteMsg(msgd)"></i>
+            <div class="msgText" style="background-color: rgb(123 130 153); color: aliceblue;"> {{ msgd.text }} </div>
+            <header style="margin-left: 7px; margin-right: 2px; background-color: rgb(123 130 153); color: aliceblue;">
+              {{ msgd.name }} </header>
           </div>
-          <footer style="flex-direction: row;">{{ msgd.date }} <span style="width: 3px; display: inline-block;"></span>
+          <footer style="flex-direction: row; padding-left: 22px;">{{ msgd.date }} <span
+              style="width: 3px; display: inline-block;"></span>
             {{ msgd.time }}</footer>
         </div>
         <ng-template #elseMsgBox>
@@ -24,8 +27,10 @@
             <div class="msgBoxMain">
               <header> {{ msgd.name }} </header>
               <div class="msgText"> {{ msgd.text }} </div>
+              <i class="fa fa-trash-o delbox" (click)="deleteMsg(msgd)"></i>
             </div>
-            <footer>{{ msgd.date }} <span style="width: 3px; display: inline-block;"></span> {{ msgd.time }}</footer>
+            <footer style="padding-right: 22px;">{{ msgd.date }} <span
+                style="width: 3px; display: inline-block;"></span> {{ msgd.time }}</footer>
           </div>
         </ng-template>
       </div>

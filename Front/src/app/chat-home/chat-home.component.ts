@@ -58,7 +58,6 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
   }
 
   isThisUsr(msgd: MsgData) {
-    console.log(msgd);
     return msgd.userId == this.userData.id;
   }
 
@@ -92,7 +91,7 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
     return this._chatService._isJoinedAGroup && this._hubConnectionService.isConnected;
   }
 
-  // Check if the chat room is start or not
+  // Sending message 
   sendMsg(msgInp: HTMLTextAreaElement) {
     if (this._chatService._isJoinedAGroup) {
       if (msgInp.value != "") {
@@ -107,6 +106,12 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
     }
     else alert("You are not joined to any room!");
   }
+
+  // Deleting msg
+  async deleteMsg(msgd: MsgData) {
+    await this._chatService.deleteMsg(msgd);
+  }
+
   // ChatBody Scroll
   chatBodyScroll() {
     setTimeout(() => {
@@ -122,6 +127,8 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
   getMessage() {
     return [...this._chatService.currentChatData.messages];
   }
+
+
   // ChatHead Control
   getChatHead() {
     return [...this._chatService.chatRoomData];
@@ -132,6 +139,8 @@ export class ChatHomeComponent implements OnInit, OnDestroy {
   getCurrentChatHead() {
     return this._chatService.currentChatData;
   }
+
+  // Fetching Individual room Data
   async fetchRoomData(room: RoomData) {
     if (room.chatId != this._chatService.currentChatData.chatId) {
       let prevRoomGroupHubInput = { ...this.roomGroupHubInput };
