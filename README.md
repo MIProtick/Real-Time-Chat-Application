@@ -32,8 +32,8 @@ This application is created with Asp.net Core as a server and angular as a clien
 
 * Open Command Prompt or Terminal and go to the prefered directory where the project will be cloned.
 >```sh
->git clone 
->cd https://github.com/MIProtick/Real-Time-Chat-Application.git
+>git clone https://github.com/MIProtick/Real-Time-Chat-Application.git
+>cd Real-Time-Chat-Application
 >```
 * Go to *`back`* directory for server.
 >```sh
@@ -50,9 +50,8 @@ This application is created with Asp.net Core as a server and angular as a clien
 > dotnet build
 > dotnet run
 >```
-* Go to *`front`* directory for server.
+* Go to *`front`* directory to run application. Open a new Terminal/ Prompt.
 >```sh
-> cd Front
 > npm install
 > ng serve
 >```
